@@ -1,0 +1,9 @@
+.weak {
+  padding-top: 30px;
+  height: 100vh;
+  overflow: auto;
+}
+
+.weak__container {
+  padding: 30px;
+}

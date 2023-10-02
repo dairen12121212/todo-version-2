@@ -1,0 +1,35 @@
+.day {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+.day__container {
+  padding-top: 30px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.day__hello {
+  font-size: 35px;
+}
+
+.day__time {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.day__info {
+  text-transform: uppercase;
+  font-size: 25px;
+  color: rgb(139, 133, 133);
+}
+.day__date {
+  font-size: 50px;
+}
+.day__month {
+  color: rgb(139, 133, 133);
+  font-size: 20px;
+}

@@ -1,0 +1,36 @@
+.checkbox {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.custome-checkbox {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  background: none;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.custome-checkbox::before {
+  content: "";
+  display: flex;
+  transform: scale(0);
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assets/icons/check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+}
+
+.checkbox:checked + .custome-checkbox::before {
+  transform: scale(1);
+}
+.checkbox:checked + .custome-checkbox {
+  border: 2px solid #0381ff;
+}

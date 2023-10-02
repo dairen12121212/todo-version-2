@@ -1,0 +1,7 @@
+.home {
+  width: 81.8%;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
