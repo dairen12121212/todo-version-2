@@ -4,6 +4,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/todo-version-2",
   plugins: [
     react(),
     svgr({
