@@ -5,6 +5,7 @@ import "./App.css";
 
 // components
 import { Routes, Route } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { SideBar } from "../SideBar/SideBar";
 
 // pages
@@ -38,19 +39,21 @@ function App() {
 
   return (
     <div className="app">
-      <SideBar />
-      <div className="app__container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/my-day" element={<MyDayPage />} />
-          <Route path="/my-weak" element={<MyWeakPage />} />
-          <Route path="/my-month" element={<MyMonthPage />} />
-          <Route path="/all-my-tasks" element={<AllTasksPage />} />
-          <Route path="/not-completed" element={<NotCompletedPage />} />
+      <HashRouter>
+        <SideBar />
+        <div className="app__container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/my-day" element={<MyDayPage />} />
+            <Route path="/my-weak" element={<MyWeakPage />} />
+            <Route path="/my-month" element={<MyMonthPage />} />
+            <Route path="/all-my-tasks" element={<AllTasksPage />} />
+            <Route path="/not-completed" element={<NotCompletedPage />} />
 
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </div>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
+      </HashRouter>
     </div>
   );
 }
