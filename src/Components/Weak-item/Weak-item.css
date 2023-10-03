@@ -1,13 +1,15 @@
 .weak__item {
   padding: 10px;
-  min-width: 300px;
-  min-height: 100px;
-  max-height: 300px;
-  background: #161616;
+  min-width: 310px;
+  background-color: #161616;
   border-radius: 10px;
+  /* min-height: 155px; */
+
   border: 1px dashed #ffffff;
   margin-right: 15px;
   position: relative;
+  overflow: hidden;
+  max-height: 425px;
 }
 
 .weak__img {
@@ -47,50 +49,57 @@
 }
 
 .weak__elements {
-  margin-top: 6px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.weak__elements-title {
+  font-size: 20px;
+  color: rgb(99, 95, 95);
+}
+
+.weak__elements::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+.weak__elements:-webkit-scrollbar-track {
+  background: orange; /* color of the tracking area */
+}
+.weak__elements::-webkit-scrollbar-thumb {
+  background-color: #252525; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 
 .weak__element {
+  position: relative;
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 10px;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 95%;
   height: 40px;
   background: #252525;
 }
+.weak__today {
+  color: #0381ff;
+}
 
-.weak__add {
-  margin-top: 20px;
-  width: 100%;
-  height: 40px;
-  position: relative;
+.weak__element:hover .weak__buttons {
+  transition: all 0.1s;
+  right: 10px;
 }
-.weak__input {
-  padding: 0 10px;
-  background: none;
-  border: 1px dashed #252525;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-.weak__button {
-  background: none;
+
+.weak__buttons {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 15px;
-}
-#weak__plus {
-  width: 20px;
+  right: -100px;
   height: 20px;
-}
-#weak__plus * {
-  stroke: white;
-}
-.weak__today {
-  color: #0381ff;
+  width: 50px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.4s;
 }

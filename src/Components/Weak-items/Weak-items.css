@@ -1,4 +1,5 @@
 .weak__items {
   margin-top: 50px;
   display: flex;
+  height: 100%;
 }

@@ -1,0 +1,15 @@
+.weak-add-day {
+  min-width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed white;
+  border-radius: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.weak__img * {
+  stroke: white;
+}

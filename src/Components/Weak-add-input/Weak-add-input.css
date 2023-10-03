@@ -1,0 +1,28 @@
+.weak__add {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+.weak__input {
+  padding: 0 10px;
+  background: none;
+  border: 1px dashed #252525;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.weak__button {
+  background: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+}
+#weak__plus {
+  width: 20px;
+  height: 20px;
+}
+#weak__plus * {
+  stroke: white;
+}

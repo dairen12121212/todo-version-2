@@ -1,27 +1,36 @@
 import "./Weak-item.css";
 
 import DotsImg from "../../assets/icons/dots.svg?react";
-import { CustomeCheckbox } from "../../Components/CustomeCheckbox/CustomeCheckbox";
+
 import { useSelector } from "react-redux";
 import { WeakAddInput } from "../Weak-add-input/Weak-add-input";
 
-export const WeakItem = ({ day, month, year }) => {
-  const date = useSelector((state) => state.userSlice.today);
-  console.log((day + "").length);
+import { WeakElement } from "../Weak-element/Weak-element";
+
+export const WeakItem = ({ keyProp, day, month, year }) => {
+  const data = useSelector((state) => state.weakSlice.objWeakTodo[keyProp]);
+  console.log(data.length);
   return (
-    <div className="weak__item">
+    <div
+      className="weak__item"
+      style={{ height: 155 + 45 * data.length + "px" }}
+    >
       <div className="weak__header">
         {(day + "").length <= 1 ? "0" + day : day} {month} {year}{" "}
-        {day == date.day ? <div className="weak__today">сегодня</div> : null}
+        {day == new Date().getDate() ? (
+          <div className="weak__today">сегодня</div>
+        ) : null}
         <DotsImg id="weak__dots" />
       </div>
       <div className="weak__elements">
-        <div className="weak__element">
-          <CustomeCheckbox />
-          hello
-        </div>
+        {data.length === 0 && (
+          <div className="weak__elements-title">заметок нет</div>
+        )}
+        {data.map((item, i) => {
+          return <WeakElement data={item} key={item.id} keyProp={keyProp} />;
+        })}
       </div>
-      <WeakAddInput />
+      <WeakAddInput keyProp={keyProp} />
     </div>
   );
 };

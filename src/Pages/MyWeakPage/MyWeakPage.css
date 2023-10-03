@@ -4,6 +4,18 @@
   overflow: auto;
 }
 
+.weak::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+.weak:-webkit-scrollbar-track {
+  background: orange; /* color of the tracking area */
+}
+.weak::-webkit-scrollbar-thumb {
+  background-color: #252525; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
+
 .weak__container {
   padding: 30px;
+  height: 100%;
 }
