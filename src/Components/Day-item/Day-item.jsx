@@ -12,6 +12,7 @@ import { CustomeCheckbox } from "../CustomeCheckbox/CustomeCheckbox";
 import { removeDayTodoItem, pinDayTodoItem } from "../../store/slices/daySlice";
 
 export const DayItem = ({ data }) => {
+  const [completed, setCompleted] = useState(data.completed);
   const [pin, setPin] = useState(data.pin);
   const dispatch = useDispatch();
 
@@ -24,8 +25,16 @@ export const DayItem = ({ data }) => {
   };
   return (
     <div className="day__item">
-      <CustomeCheckbox id={data.id} />
-      <div className="day__title">{data.value}</div>
+      <CustomeCheckbox
+        id={data.id}
+        completed={completed}
+        setCompleted={setCompleted}
+      />
+      <div
+        className={completed ? "day__title day__title_completed" : "day__title"}
+      >
+        {data.value}
+      </div>
       <div className={pin ? "day__buttons day__buttons_pin" : "day__buttons"}>
         <button className="day__button" onClick={() => onPinDayTodo()}>
           <PinImg className={pin ? "day__img day__img_pin" : "day__img"} />

@@ -47,6 +47,10 @@
 .day__title {
   font-size: 20px;
 }
+.day__title_completed {
+  color: #0381ff;
+  text-decoration: line-through;
+}
 
 .list-item-enter {
   opacity: 0;

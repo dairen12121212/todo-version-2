@@ -18,9 +18,25 @@ const weakSlice = createSlice({
       console.log(action.payload);
       state.objWeakTodo[action.payload] = [];
     },
+    toggleWeakItemCompleted(state, action) {
+      state.objWeakTodo[action.payload.objId] = state.objWeakTodo[
+        action.payload.objId
+      ].map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, completed: !item.completed };
+        } else {
+          return { ...item };
+        }
+      });
+    },
   },
 });
 
 export default weakSlice.reducer;
-export const { addWeakItemTodo, removeWeakItemTodo, addWeakDay } =
-  weakSlice.actions;
+
+export const {
+  addWeakItemTodo,
+  removeWeakItemTodo,
+  addWeakDay,
+  toggleWeakItemCompleted,
+} = weakSlice.actions;

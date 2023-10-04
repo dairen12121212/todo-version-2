@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./Weak-element.css";
 
 import { CustomeCheckbox } from "../../Components/CustomeCheckbox/CustomeCheckbox";
@@ -9,14 +11,25 @@ import { useDispatch } from "react-redux";
 import { removeWeakItemTodo } from "../../store/slices/weakSlice";
 
 export const WeakElement = ({ data, keyProp }) => {
+  const [completed, setCompleted] = useState(data.completed);
   const dispatch = useDispatch();
+
   const onDeleteWeakItem = () => {
     dispatch(removeWeakItemTodo({ id: data.id, objId: keyProp }));
   };
-  console.log(data);
+  // console.log(data);
   return (
-    <div className="weak__element">
-      <CustomeCheckbox />
+    <div
+      className={
+        completed ? "weak__element weak__element_completed" : "weak__element"
+      }
+    >
+      <CustomeCheckbox
+        id={data.id}
+        completed={completed}
+        setCompleted={setCompleted}
+        objId={keyProp}
+      />
       {data.value}
       <div className="weak__buttons">
         <button className="day__button">

@@ -1,21 +1,27 @@
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import "./CustomeCheckbox.css";
 import { toggleCompletedDayTodoItem } from "../../store/slices/daySlice";
+import { toggleWeakItemCompleted } from "../../store/slices/weakSlice";
 
-export const CustomeCheckbox = ({ id }) => {
-  // const [complete, setComplete] = useState(false);
+export const CustomeCheckbox = ({ id, completed, setCompleted, objId }) => {
+  const dispatch = useDispatch();
 
-  // const dispatch = useDispatch();
-  // const onToggleCompletedDayTodoItem = () => {
-  //   dispatch(toggleCompletedDayTodoItem(id));
-  // };
+  const onToggleCompletedDayTodoItem = () => {
+    dispatch(toggleCompletedDayTodoItem(id));
+  };
+  const onToggleCompletedWeakTodoItem = () => {
+    dispatch(toggleWeakItemCompleted({ id, objId }));
+  };
   return (
-    // onClick={() => onToggleCompletedDayTodoItem()}
     <label>
       <input
-        // value={complete}
-        // onChange={() => setComplete(!complete)}
+        onClick={() =>
+          objId
+            ? onToggleCompletedWeakTodoItem()
+            : onToggleCompletedDayTodoItem()
+        }
+        value={completed}
+        onChange={() => setCompleted(!completed)}
         type="checkbox"
         className="checkbox"
       />
