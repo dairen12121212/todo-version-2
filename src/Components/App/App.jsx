@@ -6,7 +6,6 @@ import "./App.css";
 // components
 import { Routes, Route } from "react-router-dom";
 import { HashRouter } from "react-router-dom";
-import { SideBar } from "../SideBar/SideBar";
 
 // pages
 import { HomePage } from "../../Pages/HomePage/HomePage";
@@ -16,10 +15,15 @@ import { MyMonthPage } from "../../Pages/MyMonthPage/MyMonthPage";
 import { AllTasksPage } from "../../Pages/AllTasksPage/AllTasksPage";
 import { NotCompletedPage } from "../../Pages/NotCompletedPage/NotCompletedPage";
 import { NotFoundPage } from "../../Pages/NotFoundPage/NotFoundPage";
+import { LoginPage } from "../../Pages/LoginPage/LoginPage";
+import { RegistrationPage } from "../../Pages/RegistrationPage/RegistrationPage";
+
+// actions
 import { addFirstAppearance } from "../../store/slices/userSlice";
 
 function App() {
   const dispatch = useDispatch();
+
   const firstAppearance = useSelector(
     (state) => state.userSlice.firstAppearance
   );
@@ -38,10 +42,9 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <HashRouter>
-        <SideBar />
-        <div className="app__container">
+    <>
+      <div className="app">
+        <HashRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/my-day" element={<MyDayPage />} />
@@ -49,12 +52,13 @@ function App() {
             <Route path="/my-month" element={<MyMonthPage />} />
             <Route path="/all-my-tasks" element={<AllTasksPage />} />
             <Route path="/not-completed" element={<NotCompletedPage />} />
-
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/registration" element={<RegistrationPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </div>
-      </HashRouter>
-    </div>
+        </HashRouter>
+      </div>
+    </>
   );
 }
 

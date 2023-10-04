@@ -6,13 +6,5 @@
 
 .app {
   display: flex;
-  justify-content: space-between;
-  width: 99.14vw;
   height: 100vh;
-}
-.app__container {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 81.8%;
 }

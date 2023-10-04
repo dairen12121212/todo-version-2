@@ -13,6 +13,7 @@ export const WeakElement = ({ data, keyProp }) => {
   const onDeleteWeakItem = () => {
     dispatch(removeWeakItemTodo({ id: data.id, objId: keyProp }));
   };
+  console.log(data);
   return (
     <div className="weak__element">
       <CustomeCheckbox />

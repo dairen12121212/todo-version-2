@@ -24,7 +24,7 @@ export const DayItem = ({ data }) => {
   };
   return (
     <div className="day__item">
-      <CustomeCheckbox />
+      <CustomeCheckbox id={data.id} />
       <div className="day__title">{data.value}</div>
       <div className={pin ? "day__buttons day__buttons_pin" : "day__buttons"}>
         <button className="day__button" onClick={() => onPinDayTodo()}>

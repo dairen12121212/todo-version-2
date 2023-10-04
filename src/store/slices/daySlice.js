@@ -30,9 +30,23 @@ const daySlice = createSlice({
         }
       }
     },
+    // toggleCompletedDayTodoItem(state, action) {
+    //   state.arrDayTodo = state.arrDayTodo.map((item) => {
+    //     if (item.id == action.payload) {
+    //       return { ...item, completed: !item.completed };
+    //     } else {
+    //       return { ...item };
+    //     }
+    //   });
+    //   console.log(state.arrDayTodo);
+    // },
   },
 });
 
 export default daySlice.reducer;
-export const { addDayTodoItem, removeDayTodoItem, pinDayTodoItem } =
-  daySlice.actions;
+export const {
+  addDayTodoItem,
+  removeDayTodoItem,
+  pinDayTodoItem,
+  toggleCompletedDayTodoItem,
+} = daySlice.actions;

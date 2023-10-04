@@ -1,7 +1,9 @@
 .weak {
   padding-top: 30px;
   height: 100vh;
-  overflow: auto;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .weak::-webkit-scrollbar {

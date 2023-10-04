@@ -9,16 +9,15 @@ import { WeakElement } from "../Weak-element/Weak-element";
 
 export const WeakItem = ({ keyProp, day, month, year }) => {
   const data = useSelector((state) => state.weakSlice.objWeakTodo[keyProp]);
-  console.log(data.length);
   return (
     <div
       className="weak__item"
       style={{ height: 155 + 45 * data.length + "px" }}
     >
       <div className="weak__header">
-        {(day + "").length <= 1 ? "0" + day : day} {month} {year}{" "}
-        {day == new Date().getDate() ? (
-          <div className="weak__today">сегодня</div>
+        {(day + "").length <= 1 ? "0" + day : day} {month} {year}
+        {day - 1 == new Date().getDate() ? (
+          <div className="weak__today">Завтра</div>
         ) : null}
         <DotsImg id="weak__dots" />
       </div>

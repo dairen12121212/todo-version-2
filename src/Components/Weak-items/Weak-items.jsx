@@ -33,7 +33,7 @@ export const WeakItems = () => {
         <WeakItem
           key={key}
           keyProp={key}
-          day={today.day + i}
+          day={today.day + i + 1}
           month={today.month}
           year={today.year}
         />

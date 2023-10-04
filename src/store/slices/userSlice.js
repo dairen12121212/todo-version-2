@@ -3,10 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    name: null,
-    surname: null,
-    firstAppearance: null,
+    userName: null,
+    userSurname: null,
+    userPassword: null,
     login: false,
+    firstAppearance: null,
     today: null,
   },
   reducers: {
@@ -16,9 +17,27 @@ const userSlice = createSlice({
     addToday(state, action) {
       state.today = action.payload;
     },
+    userRegistration(state, action) {
+      state.userName = action.payload.name;
+      state.userSurname = action.payload.surname;
+      state.userPassword = action.payload.password;
+      state.login = true;
+    },
+    userLogin(state) {
+      state.login = true;
+    },
+    userLogout(state) {
+      state.login = false;
+    },
   },
 });
 
 export default userSlice.reducer;
 
-export const { addFirstAppearance, addToday } = userSlice.actions;
+export const {
+  addFirstAppearance,
+  addToday,
+  userRegistration,
+  userLogin,
+  userLogout,
+} = userSlice.actions;
