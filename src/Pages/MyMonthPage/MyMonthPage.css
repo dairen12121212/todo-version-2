@@ -1,3 +1,52 @@
 .month {
   width: 100%;
+  height: 100vh;
+  padding: 60px 30px 30px 30px;
+}
+.month__title {
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  width: 350px;
+  height: 40px;
+  background: #242424;
+}
+.month__img {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+.month__img {
+  fill: white;
+}
+.month__container {
+  display: flex;
+}
+.month__items {
+  margin-top: 50px;
+  width: 1500px;
+  height: 700px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.month__item {
+  cursor: pointer;
+  margin: 1px;
+  width: 212px;
+  height: 133px;
+  border: 1px solid white;
+}
+.month__item_current {
+  border: 1px solid #0381ff;
+  /* border: 1px solid #ff11a4; */
+}
+.month__subtitle {
+  padding: 10px;
+}
+
+#day {
+  /* border: 1px solid #0381ff; */
+  background: rgba(3, 129, 255, 0.11);
 }

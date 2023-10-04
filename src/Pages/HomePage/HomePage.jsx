@@ -1,11 +1,16 @@
+import { SideBar } from "../../Components/SideBar/SideBar";
+import useLogin from "../../hooks/useLogin";
 import "./HomePage.css";
-import { NavLink } from "react-router-dom";
 
 export const HomePage = () => {
+  useLogin();
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
   return (
-    <div className="home">
-      <div className="home__title">Okey LETS GOOO</div>
-      <NavLink to="/my-day">click</NavLink>
-    </div>
+    <>
+      <SideBar />
+      <div className="home"></div>
+    </>
   );
 };
