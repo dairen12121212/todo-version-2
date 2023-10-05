@@ -1,9 +1,9 @@
-import "./NotCompletedPage.css";
+import './NotCompletedPage.css'
 
 export const NotCompletedPage = () => {
-  return (
-    <div className="not-completed">
-      <div>not completed</div>
-    </div>
-  );
-};
+	return (
+		<div className="not-completed">
+			<div>not completed</div>
+		</div>
+	)
+}

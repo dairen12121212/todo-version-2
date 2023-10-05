@@ -1,0 +1,29 @@
+.month__item {
+	position: relative;
+	padding: 10px;
+	cursor: pointer;
+	margin: 1px;
+	width: 212px;
+	height: 120px;
+	border: 1px solid white;
+}
+.month__item_current {
+	border: 1px solid #0381ff;
+	/* border: 1px solid #ff11a4; */
+}
+.month__subtitle {
+	padding: 10px;
+}
+
+#day {
+	/* border: 1px solid #0381ff; */
+	background: rgba(3, 129, 255, 0.11);
+}
+
+.month__item-counter {
+	position: absolute;
+	/* width: 100%; */
+	padding: 10px;
+	bottom: 10px;
+	background: rgb(112, 108, 108);
+}
