@@ -16,7 +16,7 @@ export const DayItems = () => {
 					{arrDayTodo.map((item) => {
 						return (
 							<CSSTransition key={item.id} classNames="list-item" timeout={300}>
-								<DayItem data={item} id={item.id} />
+								<DayItem data={item} id={item.id} day={true} />
 							</CSSTransition>
 						)
 					})}

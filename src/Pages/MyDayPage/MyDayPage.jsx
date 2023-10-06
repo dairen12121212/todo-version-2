@@ -1,6 +1,9 @@
 import './MyDayPage.css'
 
-import { useSelector } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
+
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import useLogin from '../../hooks/useLogin'
 
@@ -8,9 +11,25 @@ import { DayItems } from '../../Components/Day-Items/Day-items'
 import { DayAddInput } from '../../Components/Day-add-input/Day-add-input'
 import { SideBar } from '../../Components/SideBar/SideBar'
 
+import { addDayTodoItem } from '../../store/slices/daySlice'
+
 export const MyDayPage = () => {
 	const userName = useSelector((state) => state.userSlice.userName)
+	const dispatch = useDispatch()
+	const [dayItemValue, setDayItemValue] = useState('')
+
 	useLogin()
+	const onAddDayTodo = () => {
+		setDayItemValue('')
+		const Obj = {
+			value: dayItemValue,
+			description: '',
+			completed: false,
+			pin: false,
+			id: uuidv4(),
+		}
+		dispatch(addDayTodoItem(Obj))
+	}
 	return (
 		<>
 			<SideBar />
@@ -25,7 +44,7 @@ export const MyDayPage = () => {
 						<div className="day__month">{new Date().toLocaleString('ru', { month: 'long' })}</div>
 					</div>
 					<DayItems />
-					<DayAddInput />
+					<DayAddInput functionName={onAddDayTodo} value={dayItemValue} setValue={setDayItemValue} />
 				</div>
 			</div>
 		</>

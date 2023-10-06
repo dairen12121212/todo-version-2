@@ -1,7 +1,7 @@
 import './Day-item.css'
 
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import PinImg from '../../assets/icons/pin.svg?react'
 import EditImg from '../../assets/icons/edit.svg?react'
@@ -11,7 +11,7 @@ import { CustomeCheckbox } from '../CustomeCheckbox/CustomeCheckbox'
 
 import { removeDayTodoItem, pinDayTodoItem } from '../../store/slices/daySlice'
 
-export const DayItem = ({ data }) => {
+export const DayItem = ({ data, day, month }) => {
 	const [completed, setCompleted] = useState(data.completed)
 	const [pin, setPin] = useState(data.pin)
 	const dispatch = useDispatch()

@@ -1,0 +1,55 @@
+.month__modal {
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.4);
+}
+.month__modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 800px;
+	height: 800px;
+	background: #141313;
+	border-radius: 10px;
+	padding: 20px;
+}
+.month__modal-header {
+	display: flex;
+	justify-content: space-between;
+}
+.month__modal-date {
+	color: #0381ff;
+	font-size: 25px;
+}
+.month__modal-close {
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.month__modal-img {
+	width: 30px;
+	height: 30px;
+}
+
+.month__modal-img * {
+	stroke: #fff;
+}
+.month__modal-wrapper {
+	position: relative;
+	height: 730px;
+}
+.month__modal-add {
+	width: 760px;
+	position: absolute;
+	/* top: 10px; */
+	bottom: 50px;
+}
+.month__modal-items {
+	margin-top: 50px;
+}

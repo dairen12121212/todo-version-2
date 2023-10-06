@@ -11,7 +11,7 @@ import { useState } from 'react'
 export const MyMonthPage = () => {
 	const [initialDay, setInitialDay] = useState(new Date())
 	const { prevArr, currentArr, nextArr, currentDay, curruntMonth, prevMonth, nextMonth, currentYear } = useCalendar(initialDay)
-
+	// console.log('render')
 	return (
 		<>
 			<SideBar />
@@ -49,7 +49,7 @@ export const MyMonthPage = () => {
 							return <MonthItem key={i} day={item} className={'month__item'} />
 						})}
 						{currentArr.map((item, i) => {
-							return <MonthItem key={i} day={item} className={'month__item month__item_current'} />
+							return <MonthItem currentMonth={curruntMonth} key={i} day={item} className={'month__item month__item_current'} />
 						})}
 						{nextArr.map((item, i) => {
 							return <MonthItem key={i} day={item} className={'month__item'} />
