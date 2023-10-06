@@ -7,14 +7,17 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import useLogin from '../../hooks/useLogin'
 
-import { DayItems } from '../../Components/Day-Items/Day-items'
 import { DayAddInput } from '../../Components/Day-add-input/Day-add-input'
+import { DayItem } from '../../Components/Day-item/Day-item'
 import { SideBar } from '../../Components/SideBar/SideBar'
 
-import { addDayTodoItem } from '../../store/slices/daySlice'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+
+import { addDayTodoItem, removeDayTodoItem } from '../../store/slices/daySlice'
 
 export const MyDayPage = () => {
 	const userName = useSelector((state) => state.userSlice.userName)
+	const arrDayTodo = useSelector((state) => state.daySlice.arrDayTodo)
 	const dispatch = useDispatch()
 	const [dayItemValue, setDayItemValue] = useState('')
 
@@ -30,6 +33,11 @@ export const MyDayPage = () => {
 		}
 		dispatch(addDayTodoItem(Obj))
 	}
+
+	const onDeleteDayTodo = (id) => {
+		dispatch(removeDayTodoItem(id))
+	}
+
 	return (
 		<>
 			<SideBar />
@@ -43,7 +51,21 @@ export const MyDayPage = () => {
 						<div className="day__date">{new Date().getDate()}</div>
 						<div className="day__month">{new Date().toLocaleString('ru', { month: 'long' })}</div>
 					</div>
-					<DayItems />
+					<div className="day__items">
+						{arrDayTodo.length == 0 ? (
+							<div className="day__items-title">Задачи отсутсвуют</div>
+						) : (
+							<TransitionGroup>
+								{arrDayTodo.map((item) => {
+									return (
+										<CSSTransition key={item.id} classNames="list-item" timeout={300}>
+											<DayItem data={item} id={item.id} day={true} deleteFunctionName={onDeleteDayTodo} />
+										</CSSTransition>
+									)
+								})}
+							</TransitionGroup>
+						)}
+					</div>
 					<DayAddInput functionName={onAddDayTodo} value={dayItemValue} setValue={setDayItemValue} />
 				</div>
 			</div>

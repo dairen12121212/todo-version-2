@@ -21,6 +21,8 @@
 .month__modal-header {
 	display: flex;
 	justify-content: space-between;
+	border-bottom: 1px solid white;
+	padding-bottom: 20px;
 }
 .month__modal-date {
 	color: #0381ff;
@@ -51,5 +53,26 @@
 	bottom: 50px;
 }
 .month__modal-items {
-	margin-top: 50px;
+	padding-right: 20px;
+	margin-top: 30px;
+	max-height: 550px;
+	overflow-y: auto;
+}
+.month__modal-none {
+	font-size: 25px;
+}
+
+.month__modal-items::-webkit-scrollbar {
+	width: 12px; /* width of the entire scrollbar */
+}
+.month__modal-items:-webkit-scrollbar-track {
+	background: orange; /* color of the tracking area */
+}
+.month__modal-items::-webkit-scrollbar-thumb {
+	background-color: #252525; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+}
+.month__modal-items-title {
+	font-size: 35px;
+	color: rgb(99, 95, 95);
 }

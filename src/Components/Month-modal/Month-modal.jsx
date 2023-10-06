@@ -9,10 +9,11 @@ import { DayAddInput } from '../Day-add-input/Day-add-input'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { addMonthDay, addMonthDayItem } from '../../store/slices/monthSlice'
+import { addMonthDay, addMonthDayItem, removeMonthItem } from '../../store/slices/monthSlice'
 
 export const MonthModal = ({ day, month, onCloseModal, monthID }) => {
-	const monthDayData = useSelector((state) => state.monthSlice[monthID][day])
+	const monthDayData = useSelector((state) => state.monthSlice[monthID][day]) || []
+	console.log(monthDayData)
 	const [monthItemValue, setMonthItemValue] = useState('')
 	const dispatch = useDispatch()
 
@@ -23,12 +24,15 @@ export const MonthModal = ({ day, month, onCloseModal, monthID }) => {
 			description: '',
 			id: uuidv4(),
 			completed: false,
-			pin: false,
 		}
-		if (!monthDayData) {
+		if (monthDayData.length === 0 || monthDayData === false) {
 			dispatch(addMonthDay({ monthID, dayID: day }))
 		}
 		dispatch(addMonthDayItem({ dayID: day, monthID, obj }))
+	}
+
+	const onDeleteMonthItem = (id) => {
+		dispatch(removeMonthItem({ id, dayID: day, monthID }))
 	}
 	return (
 		<div className="month__modal">
@@ -41,13 +45,10 @@ export const MonthModal = ({ day, month, onCloseModal, monthID }) => {
 				</div>
 				<div className="month__modal-wrapper">
 					<div className="month__modal-items">
-						{monthDayData !== undefined ? (
-							monthDayData.map((item) => {
-								return <DayItem data={item} month={true} key={item.id} />
-							})
-						) : (
-							<div>задач нет</div>
-						)}
+						{monthDayData == undefined || (monthDayData.length == 0 && <div className="month__modal-none">Задач нет</div>)}
+						{monthDayData.map((item, i) => {
+							return <DayItem data={item} key={i} deleteFunctionName={onDeleteMonthItem} />
+						})}
 					</div>
 					<DayAddInput
 						className="month__modal-add"

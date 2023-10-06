@@ -19,9 +19,10 @@ export const WeakItem = ({ keyProp, day, month, year }) => {
 			</div>
 			<div className="weak__elements">
 				{data.length === 0 && <div className="weak__elements-title">заметок нет</div>}
-				{data.map((item, i) => {
-					return <WeakElement data={item} key={item.id} keyProp={keyProp} />
-				})}
+				{data !== undefined &&
+					data.map((item, i) => {
+						return <WeakElement data={item} key={item.id} keyProp={keyProp} />
+					})}
 			</div>
 			<WeakAddInput keyProp={keyProp} />
 		</div>
