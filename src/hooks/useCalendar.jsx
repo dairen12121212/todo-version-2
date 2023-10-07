@@ -35,16 +35,15 @@ const useCalendar = (initialDay) => {
 	let countDayMonth = dayCount[month] //число дней в текущем месяце
 	let lastCountDayMonth = dayCount[month - 1] //число дней в прошедшем месяце
 	// console.log(dayIndex + " calendar");
-	//
-	if (month == 12) nextMonth = monthNames[1]
-	if (month == 1) prevMonth = monthNames[12]
+	// console.log(day, dayIndex, lastDayIndex, countDayMonth, lastCountDayMonth)
 	// если год весокосный, то в феврале 29 дней
 	if (currentYear % 4 == 0) {
 		dayCount[1] = 29
 		countDayMonth = dayCount[month]
 	}
+
 	// если текущий месяц декабрь, то следущий берем январь
-	if (month === 12) lastCountDayMonth = dayCount[0]
+	if (month === 11) lastCountDayMonth = dayCount[0]
 	// считаем индекс последнего дня текущего месяца
 	for (let i = day; i < countDayMonth; i++) {
 		lastDayIndex++
@@ -61,10 +60,20 @@ const useCalendar = (initialDay) => {
 	// например 25 сентября (понедельник), от него считаем до 30 (суббота)
 	// дальше идет уже текущий месяц
 	const lastStartDay = lastCountDayMonth - (dayIndex - 2)
+	console.log(dayIndex)
+
 	// считаем какие дни должны быть в прошлом месяце
 	const prevDays = () => {
-		for (let i = lastStartDay; i <= lastCountDayMonth; i++) {
-			prevArr.push(i)
+		if (lastCountDayMonth) {
+			for (let i = lastStartDay; i <= lastCountDayMonth; i++) {
+				prevArr.push(i)
+			}
+		} else {
+			// тут был баг, что у меня январь не мог получить данные от прошлого месяца и поэтому считался от понедельника, хотя выпадает на
+			// воскресенье. Если не забуду пофиксить, то пофикшу, а пока что оставлю костыль
+			for (let i = 26; i <= 31; i++) {
+				prevArr.push(i)
+			}
 		}
 	}
 	prevDays()

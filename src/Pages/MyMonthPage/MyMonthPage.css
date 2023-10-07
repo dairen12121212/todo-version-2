@@ -73,3 +73,7 @@
 	font-size: 25px;
 	color: grey;
 }
+
+.month__item_current-day {
+	background: rgba(3, 129, 255, 0.2);
+}

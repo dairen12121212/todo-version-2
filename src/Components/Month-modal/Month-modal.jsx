@@ -13,7 +13,6 @@ import { addMonthDay, addMonthDayItem, removeMonthItem } from '../../store/slice
 
 export const MonthModal = ({ day, month, onCloseModal, monthID }) => {
 	const monthDayData = useSelector((state) => state.monthSlice[monthID][day]) || []
-	console.log(monthDayData)
 	const [monthItemValue, setMonthItemValue] = useState('')
 	const dispatch = useDispatch()
 

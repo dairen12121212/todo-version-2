@@ -10,8 +10,9 @@ import { useState } from 'react'
 
 export const MyMonthPage = () => {
 	const [initialDay, setInitialDay] = useState(new Date())
+
 	const { prevArr, currentArr, nextArr, currentDay, curruntMonth, prevMonth, nextMonth, currentYear } = useCalendar(initialDay)
-	// console.log('render')
+
 	return (
 		<>
 			<SideBar />
@@ -22,13 +23,13 @@ export const MyMonthPage = () => {
 					</div>
 					<div className="month__nav">
 						<button
-							onClick={() => setInitialDay(new Date(`${prevMonth} ${currentDay}, ${currentYear}`))}
+							onClick={() => curruntMonth !== 'январь' && setInitialDay(new Date(`${prevMonth} ${currentDay}, ${currentYear}`))}
 							className="month__button">
 							Прошлый
 						</button>
 						<div className="month__current-month">{curruntMonth}</div>
 						<button
-							onClick={() => setInitialDay(new Date(`${nextMonth} ${currentDay}, ${currentYear}`))}
+							onClick={() => curruntMonth !== 'декабрь' && setInitialDay(new Date(`${nextMonth} ${currentDay}, ${currentYear}`))}
 							className="month__button">
 							Следущий
 						</button>
@@ -49,7 +50,18 @@ export const MyMonthPage = () => {
 							return <MonthItem key={i} day={item} className={'month__item'} />
 						})}
 						{currentArr.map((item, i) => {
-							return <MonthItem currentMonth={curruntMonth} key={i} day={item} className={'month__item month__item_current'} />
+							return (
+								<MonthItem
+									currentMonth={curruntMonth}
+									key={i}
+									day={item}
+									className={
+										i + 1 === currentDay && curruntMonth === new Date().toLocaleString('ru', { month: 'long' })
+											? 'month__item month__item_current month__item_current-day'
+											: 'month__item month__item_current'
+									}
+								/>
+							)
 						})}
 						{nextArr.map((item, i) => {
 							return <MonthItem key={i} day={item} className={'month__item'} />

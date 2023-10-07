@@ -25,14 +25,6 @@ export const NavMenu = () => {
 					<MyMonthImg className="nav__img" />
 					Мой Месяц
 				</NavLink>
-				<NavLink to="/all-my-tasks" className="nav__link">
-					<AllImg className="nav__img" />
-					Все задачи
-				</NavLink>
-				<NavLink to="/not-completed" className="nav__link">
-					<NotImg className="nav__img" />
-					Незавершенные Задачи
-				</NavLink>
 			</div>
 		</nav>
 	)

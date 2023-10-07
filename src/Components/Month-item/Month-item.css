@@ -23,8 +23,9 @@
 
 .month__item-counter {
 	position: absolute;
-	/* width: 100%; */
+	right: 10px;
+	top: 10px;
 	padding: 10px;
-	bottom: 10px;
-	background: rgb(112, 108, 108);
+
+	background: #0381ff;
 }
